@@ -1,4 +1,4 @@
-FROM php:5.6-fpm
+FROM php:5.6-apache
 
 RUN apt-get update && apt-get install -y \
   bzip2 \
@@ -55,4 +55,4 @@ RUN curl -fsSL -o nextcloud.tar.bz2 \
 COPY docker-entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["php-fpm"]
+CMD ["apache2-foreground"]
